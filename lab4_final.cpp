@@ -20,15 +20,15 @@
 #include <time.h>
 
 using namespace std;
-int modal;
+int modal; // no need
 
 
 class Element
 { protected:
-int a;
+int a; // uint
 const static int modal =1000;
 public:
-    Element(int d = 0)
+    Element(int d = 0) // uint
 	{
 		a = d%modal;
 	}
@@ -40,7 +40,7 @@ public:
 
 
 
-	Element operator+(const Element& sk, const Element& sb)
+	Element operator+(const Element& sk, const Element& sb) // форматирование
 	{
 		int g=sk.a+sb.a;
 		Element d(g);
@@ -62,7 +62,7 @@ istream& operator >> (istream& in, Element& d)
 {
 	string el;
 	in >> el;
-	stringstream stsr;
+	stringstream stsr; // в чем смысл манипуляции?
 	ss << el;
 	ss >> d.a;
 	return in;
@@ -72,7 +72,7 @@ istream& operator >> (istream& in, Element& d)
 class Matrix
 {protected:
 	Element** d;
-	int stroki, stolbcu;
+	int stroki, stolbcu; // видел у goncharov
 public:
 	Matrix(int sk, int sb, Element** dv = 0)
 	{
